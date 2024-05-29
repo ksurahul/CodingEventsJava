@@ -23,22 +23,25 @@ public class Event {
     @Email(message = "Invalid email. Try again.")
     private String contactEmail;
 
-    @NotBlank(message = "Location cannot be empty")
-    private String location;
+//    @NotBlank(message = "Location cannot be empty")
+//    private String location;
+//
+//    @AssertTrue(message = "You must be registered")
+//    private boolean register = true;
+//
+//    @Positive(message = "Number of attendees must be greater than 0")
+//    private int numAttendees;
 
-    @AssertTrue(message = "You must be registered")
-    private boolean register = true;
-
-    @Positive(message = "Number of attendees must be greater than 0")
-    private int numAttendees;
+    private EventType type;
 
 
 
-    public Event(String name, String description, String contactEmail) {
+    public Event(String name, String description, String contactEmail, EventType type) {
         this();
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
+        this.type = type;
     }
 
     public Event() {
@@ -72,6 +75,14 @@ public class Event {
 
     public int getId() {
         return id;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     @Override
